@@ -1,0 +1,31 @@
+{
+  "name": "my-app",
+  "description": "A first Djazztro project",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "django": "cd backend && python manage.py",
+    "astro": "cd frontend && astro",
+    "dev:frontend": "npm run astro dev",
+    "dev:backend": "npm run django runserver",
+    "dev": "concurrently npm:dev:frontend npm:dev:backend -n \"Astro,Django\"",
+    "build": "npm run astro build",
+    "preview": "cross-env DEBUG=False \"npm run astro build && npm run dev:backend\"",
+    "prepare": "npm run django migrate"
+  },
+  "keywords": [
+    "withastro",
+    "django"
+  ],
+  "author": "NathanF",
+  "license": "MIT",
+  "dependencies": {
+    "astro": "^1.9.2",
+    "djazztro": "^0.0.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3"
+  }
+}
